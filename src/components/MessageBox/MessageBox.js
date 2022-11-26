@@ -28,12 +28,12 @@ const MessageBox = () => {
     };
     const formik = useFormik({
         initialValues: {
-            name: "",
+            from_name: "",
             email: "",
             message: "",
         },
         validationSchema: Yup.object({
-            name: Yup.string().required("Name is required"),
+            from_name: Yup.string().required("Name is required"),
             email: Yup.string().email("Email adress is not valid").required("Email adress is required"),
             message: Yup.string().required("message is required"),
         }),
@@ -53,18 +53,18 @@ const MessageBox = () => {
                 {!sendEmailSuccess && (
                         <form className={classes.form} onSubmit={formik.handleSubmit}>
                             <TextField
-                                error={Boolean(formik.touched.name && formik.errors.name)}
+                                error={Boolean(formik.touched.from_name && formik.errors.from_name)}
                                 onBlur={formik.handleBlur}
                                 onChange={formik.handleChange}
-                                value={formik.values.name}
-                                helperText={formik.touched.name && formik.errors.name}
+                                value={formik.values.from_name}
+                                helperText={formik.touched.from_name && formik.errors.from_name}
                                 variant="filled"
                                 margin="normal"
                                 type="text"
                                 fullWidth
-                                id="name"
-                                label={t('contact_full_name')}
-                                name="name"
+                                id="from_name"
+                                label={t('name')}
+                                name="from_name"
                             />
                             <TextField
                                 error={Boolean(formik.touched.email && formik.errors.email)}
